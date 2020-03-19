@@ -39,7 +39,9 @@
   will be used as **default**, expecting it to be a callable.
   
   With the example directly above, nothing will happen, if `value`
-  happens to be neither `'a'` nor `'b'`
+  happens to be neither `'a'` nor `'b'`.
+  
+  Below it has a default action.
   
     value = 'c'
     s = switch[
