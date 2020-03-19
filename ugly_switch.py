@@ -7,8 +7,8 @@ __version__ = "0.1.0"
 
 __all__ = ('switch',)
 
-"""An ugly pseudo solution for using switches in python
-There won't be any optimization or any fancy stuff
+"""An ugly pseudo solution for using switches in python.
+There won't be any optimization or any fancy stuff,
 but hey, they are reusable"""
 
 from typing import Hashable, Dict, Tuple, Callable, Union
