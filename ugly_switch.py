@@ -57,4 +57,6 @@ class switch:  # lowercase will probably look better in code... I guess
     __str__ = __repr__
 
 
-if __name__ == '__main__': pass
+if __name__ == '__main__':
+    s = switch(
+    )
