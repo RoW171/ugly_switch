@@ -1,4 +1,5 @@
 # ugly_switch
+  [](https://travis-ci.org/RoW171/ugly_switch.svg?branch=master)
   An ugly pseudo solution for using switches in python.
   
 ### Installation
