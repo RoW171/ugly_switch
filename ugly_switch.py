@@ -30,7 +30,7 @@ class switch:  # lowercase will probably look better in code... I guess
 
     def set_cases(self, *cases: Tuple[Union[Hashable, Callable], ...]) -> None:
         cases: List[Union[Hashable, Callable], ...] = list(*cases)
-        if len(cases) % 2 != 0: cases.pop()  # the last item is default if len is odd
+        if len(cases) % 2 != 0: self.default = cases.pop()  # the last item is default if len is odd
         self.cases = dict(zip(*([iter(cases)] * 2)))  # split into chunks of two, to create the dict
 
     def __len__(self) -> int: return len(self.cases)
@@ -52,8 +52,7 @@ class switch:  # lowercase will probably look better in code... I guess
     def __repr__(self) -> str:
         return 'switch ?:\n' \
                    + '\n'.join(f'\tcase {case}: {action.__name__}' for case, action, in self.cases.items()) \
-                   + ('\n' if self.has_cases else '') \
-                   + f'\tdefault: {self.default.__name__}' if self.has_default else ''
+                   + (f'\n\tdefault: {self.default.__name__}' if self.has_default else '')
 
     __str__ = __repr__
 
