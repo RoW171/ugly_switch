@@ -11,7 +11,7 @@ __all__ = ('switch',)
 There won't be any optimization or any fancy stuff,
 but hey, they are reusable"""
 
-from typing import Hashable, Dict, Tuple, Callable, Union
+from typing import Hashable, Dict, Tuple, Callable, Union, List
 
 
 class switch:  # lowercase will probably look better in code... I guess
@@ -20,7 +20,7 @@ class switch:  # lowercase will probably look better in code... I guess
 
     def __call__(self, item: Hashable) -> 'switch':
         try: self.cases[item]()
-        except KeyError:  self.default() or (lambda: None)
+        except KeyError: self.default() or (lambda: None)
         finally: return self
 
     def __class_getitem__(cls, *cases: Tuple[Union[Hashable, Callable], ...]) -> 'switch':
@@ -29,7 +29,8 @@ class switch:  # lowercase will probably look better in code... I guess
         return sw
 
     def set_cases(self, *cases: Tuple[Union[Hashable, Callable], ...]) -> None:
-        if len(*cases) % 2 != 0: self.default = (cases := list(*cases)).pop()  # the last item is default if len is odd
+        cases: List[Union[Hashable, Callable], ...] = list(*cases)
+        if len(cases) % 2 != 0: cases.pop()  # the last item is default if len is odd
         self.cases = dict(zip(*([iter(cases)] * 2)))  # split into chunks of two, to create the dict
 
     def __len__(self) -> int: return len(self.cases)
@@ -57,6 +58,4 @@ class switch:  # lowercase will probably look better in code... I guess
     __str__ = __repr__
 
 
-if __name__ == '__main__':
-    s = switch(
-    )
+if __name__ == '__main__': pass
