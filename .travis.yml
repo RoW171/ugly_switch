@@ -11,7 +11,7 @@ jobs:
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
-install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
+install: pip install --upgrade pip  # all three OSes agree about 'pip3'
 # 'python' points to Python 2.7 on macOS but points to Python 3.8 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script: python3 -m tests.switch_test
