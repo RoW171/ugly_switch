@@ -1,5 +1,6 @@
 # ugly_switch
-  [](https://travis-ci.org/RoW171/ugly_switch.svg?branch=master)
+  [![Build Status](https://travis-ci.org/RoW171/ugly_switch.svg?branch=master)](https://travis-ci.org/RoW171/ugly_switch)
+  
   An ugly pseudo solution for using switches in python.
   
 ### Installation
